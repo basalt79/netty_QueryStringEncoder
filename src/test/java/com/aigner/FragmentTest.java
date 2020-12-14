@@ -9,16 +9,16 @@ public class FragmentTest {
 
   @Test
   public void withQueryParameters() {
-    var qse = new QueryStringEncoder("/thePath&email=foo@bar.com");
+    var qse = new QueryStringEncoder("/thePath?email=foo@bar.com");
     qse.addParam("myKey", "myValue");
-    assertEquals("/thePath&email=foo@bar.com?myKey=myValue", qse.toString());
+    assertEquals("/thePath?email=foo@bar.com?myKey=myValue", qse.toString());
   }
 
   @Test
   public void withQueryParametersAndFragment() {
-    var qse = new QueryStringEncoder("/thePath&email=foo@bar.com#fragment");
+    var qse = new QueryStringEncoder("/thePath?email=foo@bar.com#fragment");
     qse.addParam("myKey", "myValue");
-    assertEquals("/thePath&email=foo@bar.com?myKey=myValue#fragment", qse.toString());
+    assertEquals("/thePath?email=foo@bar.com&myKey=myValue#fragment", qse.toString());
   }
 
   @Test
